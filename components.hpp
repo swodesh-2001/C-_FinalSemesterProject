@@ -24,11 +24,11 @@ void create(){
   int a = 100*id+x;
   int b = y;
   create_square(a,b,100,50,0,1,color);
-  a = 100*id+x + 20;
+  a = 100*id+x + 40;
   b = y + 10;
-  if(name == "resistor")  { create_square(a , b , scale*50 , scale*15 ,1,1,1); }
-  if(name == "voltage_source")   {create_square(a,b,scale*40,scale*5,1,1,1); create_square(a+scale*15,b+scale*16,scale*10,scale*5,1,1,1);}
-  if(name == "node")   {create_square(a , b , scale*15 , scale*15 ,1,1,1);}
+  if(name == "rectangle")  { create_square(a , b , scale*50 , scale*15 ,1,1,1); }
+  if(name == "square")   {create_square(a,b- 5,scale*40,scale*40,1,1,1);}
+  if(name == "pen")   {create_square(a , b  , scale*15 , scale*15 ,1,1,1);}
 }
 
 static void counter(){
@@ -50,9 +50,9 @@ void if_hovering(int a , int b){
 
 void draw(int a , int b){
 if (flag){
-  if(name == "resistor")  { create_square(a , b , scale*50 , scale*15 ,1,1,1);}
-  if(name == "voltage_source")   {create_square(a,b,scale*40,scale*5,1,1,1); create_square(a+scale*15,b+scale*16,scale*10,scale*5,1,1,1);}
-  if(name == "node")   {create_square(a , b , scale*15 , scale*15 ,1,1,1);}
+  if(name == "rectangle")  { create_square(a , b , scale*50 , scale*15 ,1,1,1);}
+  if(name == "square")   {create_square(a,b,scale*40,scale*40,1,1,1); }
+  if(name == "pen")   {create_square(a , b , scale*15 , scale*15 ,1,1,1);}
 
 
 }
@@ -89,7 +89,7 @@ return flag;
 
 
 
-class resistor{
+class rectangle{
 public:
 int x,y,scale = 1;
 bool flag = false;
@@ -138,7 +138,7 @@ bool hovering_status(int a , int b){
 
 
 
-resistor(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(100),color(c),temp(c){
+rectangle(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(100),color(c),temp(c){
 }
 
 void create(){
@@ -164,7 +164,7 @@ void create(){
 };
 
 
-class voltage_source{
+class square{
 public:
 int x,y,scale = 1;
 bool flag = false;
@@ -197,7 +197,7 @@ y = b;}
 void if_hovering(int a , int b){
 
 
-    if(a <= (x + scale*50) && a >= x && b <= (y + scale*15) && b >= y){
+    if(a <= (x + scale*40) && a >= x && b <= (y + scale*40) && b >= y){
         color = "yellow";
     }
     else
@@ -207,7 +207,7 @@ void if_hovering(int a , int b){
 
 bool hovering_status(int a , int b){
 
-    if(a <= (x + scale*50) && a >= x && b <= (y + scale*15) && b >= y){
+    if(a <= (x + scale*40) && a >= x && b <= (y + scale*40) && b >= y){
         return true;
     }
     else{return false;}
@@ -215,25 +215,25 @@ bool hovering_status(int a , int b){
 
 
 
-voltage_source(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(100),color(c),temp(c){
+square(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(100),color(c),temp(c){
 }
 
 void create(){
-         if( color == "red" || color == "RED" ){create_square(x,y,scale*40,scale*5,1,0,0); create_square(x+scale*15,y+scale*16,scale*10,scale*5,1,0,0);}
+         if( color == "red" || color == "RED" ){create_square(x,y,scale*40,scale*40,1,0,0);  }
 
-         if ( color == "green"  || color == "GREEN" ){create_square(x,y,scale*40,scale*5,0,1,0); create_square(x+scale*15,y+scale*16,scale*10,scale*5,0,1,0);}
+         if ( color == "green"  || color == "GREEN" ){create_square(x,y,scale*40,scale*40,0,1,0);  }
 
-         if ( color == "blue" || color == "BLUE" ){create_square(x,y,scale*40,scale*5,0,0,1); create_square(x+scale*15,y+scale*16,scale*10,scale*5,0,0,1);}
-
-
-         if ( color == "yellow" || color == "YELLOW"  ){create_square(x,y,scale*40,scale*5,1,1,0); create_square(x+scale*15,y+scale*16,scale*10,scale*5,1,1,0);}
+         if ( color == "blue" || color == "BLUE" ){create_square(x,y,scale*40,scale*40,0,0,1);  }
 
 
-         if ( color == "black" || color == "BLACK" ){create_square(x,y,scale*40,scale*5,0,0,0); create_square(x+scale*15,y+scale*16,scale*10,scale*5,0,0,0);}
+         if ( color == "yellow" || color == "YELLOW"  ){create_square(x,y,scale*40,scale*40,1,1,0); }
+
+
+         if ( color == "black" || color == "BLACK" ){create_square(x,y,scale*40,scale*40,0,0,0); }
 
 
          if (color == "white" || color == "WHITE") {
-       {create_square(x,y,scale*40,scale*5,1,1,1); create_square(x+scale*15,y+scale*16,scale*10,scale*5,1,1,1);}
+       {create_square(x,y,scale*40,scale*40,1,1,1);  }
 
          }
 
@@ -242,7 +242,7 @@ void create(){
 };
 
 
-class node{
+class pen{
 public:
 vector<int> x_points;
 vector<int> y_points;
@@ -319,7 +319,6 @@ void create(){
 
 }
 };
-
 
 
 
