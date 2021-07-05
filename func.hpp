@@ -47,14 +47,14 @@ glEnd();
 
 
 
-void create_voltage_source(int x , int y,int size=1){
+void create_square(int x , int y,int size=1){
 create_square(x,y,size*40,size*5);
 create_square(x+size*15,y+size*16,size*10,size*5);
 }
 
 
 
-void create_resistor(int x , int y,int size=1){
+void create_rectangle(int x , int y,int size=1){
     create_square(x , y , size*50 , size*15 ,1,1,1);
 }
 
@@ -92,5 +92,4 @@ glutPostRedisplay();
 
 glutTimerFunc(1000/60.,timer,0);
 }
-
 
