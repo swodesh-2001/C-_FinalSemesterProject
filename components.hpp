@@ -1,7 +1,4 @@
 
-int temp{0};
-
-
 
 class menu{
 private:
@@ -13,8 +10,8 @@ int id;
 
 
 public :
-//static int c ;
-menu(string s = "none",int a = 0 , int b = 0):name(s),x(a),y(b){ id = temp; counter();}
+static int c ;
+menu(string s = "none",int a = 0 , int b = 0):name(s),x(a),y(b){ id = c; counter();}
 
 int get_id(){
 return id;
@@ -32,7 +29,7 @@ void create(){
 }
 
 static void counter(){
-temp++;
+c++;
 }
 
 string get_name(){
@@ -75,16 +72,9 @@ bool get_flag(){
 return flag;
 }
 
-
-
-
-
-
 };
 
-
-
-
+int menu::c = 0;
 
 
 
@@ -93,10 +83,13 @@ class rectangle{
 public:
 int x,y,scale = 1;
 bool flag = false;
+bool create_flag = false;
 string color,temp;
 float value;
 
-
+void change_create_flag(bool b=true){
+    create_flag = b;
+}
 
 void show_color(){
 cout << color << endl;
@@ -142,25 +135,16 @@ rectangle(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(
 }
 
 void create(){
+
+    if (create_flag){
          if( color == "red" || color == "RED" ){create_square(x , y , scale*50 , scale*15 ,1,0,0);}
-
          if ( color == "green"  || color == "GREEN" ){create_square(x , y , scale*50 , scale*15 ,0,1,0);}
-
          if ( color == "blue" || color == "BLUE" ){ create_square(x , y , scale*50 , scale*15 ,0,0,1);}
-
          if ( color == "yellow" || color == "YELLOW"  ){create_square(x , y , scale*50 , scale*15 ,1,1,0);}
-
          if ( color == "black" || color == "BLACK" ){create_square(x , y , scale*50 , scale*15 ,0,0,0);}
-
-         if (color == "white" || color == "WHITE") {
-        create_square(x , y , scale*50 , scale*15 ,1,1,1);
-         }
-
-
+         if (color == "white" || color == "WHITE") {create_square(x , y , scale*50 , scale*15 ,1,1,1);}
+          }
 }
-
-
-
 };
 
 
@@ -170,8 +154,11 @@ int x,y,scale = 1;
 bool flag = false;
 string color,temp;
 float value;
+bool create_flag = false;
 
-
+void change_create_flag(bool b=true){
+    create_flag = b;
+}
 
 void show_color(){
 cout << color << endl;
@@ -219,36 +206,15 @@ square(int a=0 , int b=0 ,float val=100, string c = "white"):x(a),y(b),value(100
 }
 
 void create(){
+
+     if (create_flag){
          if( color == "red" || color == "RED" ){create_square(x,y,scale*40,scale*40,1,0,0);  }
-
          if ( color == "green"  || color == "GREEN" ){create_square(x,y,scale*40,scale*40,0,1,0);  }
-
          if ( color == "blue" || color == "BLUE" ){create_square(x,y,scale*40,scale*40,0,0,1);  }
-
-
          if ( color == "yellow" || color == "YELLOW"  ){create_square(x,y,scale*40,scale*40,1,1,0); }
-
-
          if ( color == "black" || color == "BLACK" ){create_square(x,y,scale*40,scale*40,0,0,0); }
-
-
-         if (color == "white" || color == "WHITE") {
-       {create_square(x,y,scale*40,scale*40,1,1,1);  }
-
-         }
-
+         if (color == "white" || color == "WHITE") {create_square(x,y,scale*40,scale*40,1,1,1); }
+     }
 
 }
 };
-
-
-
-
-
-
-
-
-
-
-
-
