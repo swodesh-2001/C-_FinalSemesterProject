@@ -111,9 +111,23 @@ y = b;}
 
 }
 
+void change_variables(char c ){
+
+switch (c) {
+     case 's' :  scale ++; break;
+     case 'a' :  scale --; break;
+     case 'r' :  color = "red"; break;
+     case 'b' : color = "blue" ; break;
+     case 'y' : color = "yellow" ; break;
+     case 'w' : color = "white" ; break;
+     case 'g' : color = "green" ; break;
+
+}
+temp = color;
+}
 
 void if_hovering(int a , int b){
-    if(a <= (x + scale*50) && a >= x && b <= (y + scale*15) && b >= y){
+    if(a <= (x + scale*50) && a >= x && b <= (y + scale*15) && b >= y && !get_flag() ){
         color = "yellow";
     }
     else
@@ -174,17 +188,25 @@ return flag;
 
 void change_pos(int a , int b){
     if (flag)
-{
-x = a;
-y = b;}
-
+{ x = a; y = b;}
 }
 
+void change_variables(char c ){
+
+switch (c) {
+     case 's' :  scale ++; break;
+     case 'a' :  scale --; break;
+     case 'r' :  color = "red"; break;
+     case 'b' : color = "blue" ; break;
+     case 'y' : color = "yellow" ; break;
+     case 'w' : color = "white" ; break;
+     case 'g' : color = "green" ; break;
+}
+temp = color;
+}
 
 void if_hovering(int a , int b){
-
-
-    if(a <= (x + scale*40) && a >= x && b <= (y + scale*40) && b >= y){
+    if(a <= (x + scale*40) && a >= x && b <= (y + scale*40) && b >= y  && !get_flag() ){
         color = "yellow";
     }
     else
