@@ -47,12 +47,12 @@ glEnd();
 
 
 
+
+
 void create_square(int x , int y,int size=1){
 create_square(x,y,size*40,size*5);
 create_square(x+size*15,y+size*16,size*10,size*5);
 }
-
-
 
 void create_rectangle(int x , int y,int size=1){
     create_square(x , y , size*50 , size*15 ,1,1,1);
@@ -80,7 +80,7 @@ glViewport(0,0,w,h);
 
 glMatrixMode(GL_PROJECTION);
 glLoadIdentity();
-gluOrtho2D(-250,250,-250,250);
+gluOrtho2D(-w/2,w/2,-h/2,h/2);
 glMatrixMode(GL_MODELVIEW);
 
 }
@@ -92,4 +92,3 @@ glutPostRedisplay();
 
 glutTimerFunc(1000/60.,timer,0);
 }
-
