@@ -5,7 +5,7 @@ int width =1000 , height = 700;
 
 
 
-const int menu_size = 5;
+const int menu_size = 2;
 const int rectangle_size = 500;
 const int square_size = 500;
 
@@ -15,7 +15,7 @@ int square_temp =  0;
 
 
 
-menu menu_points[menu_size] = {menu("square"),menu("square") ,menu("square") ,menu("square") ,menu("rectangle")};
+menu menu_points[menu_size] = {menu("square"),menu("rectangle")};
 rectangle rectangle_points[rectangle_size]{};
 
 square square_points[square_size]{};
@@ -88,18 +88,17 @@ void mouse_func(int button , int state ,  int x , int y){
 
 
 void motion_mouse_func( int x , int y){
-
-
         for(int i = 0 ; i < rectangle_size ; i++){if(rectangle_points[i].get_flag()){rectangle_points[i].change_pos(a,b);}}
         for(int i = 0 ; i < square_size ; i++){if(square_points[i].get_flag()){square_points[i].change_pos(a,b);}}
-
-
     glutMouseFunc(mouse_func);
     a = x;
     b = y;
 }
 
-
+void keyboard(unsigned char c , int x , int y){
+for(int i = 0 ; i < rectangle_size ; i++){if(rectangle_points[i].get_flag()){rectangle_points[i].change_variables(c);}}
+for(int i = 0 ; i < square_size ; i++){if(square_points[i].get_flag()){square_points[i].change_variables(c);}}
+}
 
 
 
@@ -132,7 +131,7 @@ for (int i = 0 ; i < menu_size ; i++){menu_points[i].create(); menu_points[i].if
 for (int i = 0 ; i < rectangle_size ; i++){rectangle_points[i].create();rectangle_points[i].if_hovering(a,b);}
 for (int i = 0 ; i < square_size ; i++){square_points[i].create();square_points[i].if_hovering(a,b);}
 
-
+glutKeyboardFunc(keyboard);
 glutPassiveMotionFunc(motion_mouse_func);
 glutSwapBuffers();
 
