@@ -53,7 +53,7 @@ if (flag){
   if(name == "square")   {create_square(a,b,scale*40,scale*40,red,green,blue); }
   if(name == "triangle")  { create_triangle(a , b , scale*20 , scale*40 ,red,green,blue); }
   if(name == "circle")   {create_circle(a , b , scale*50 ,red,green,blue,2);}
-  if(name == "pen")   {create_real_pen(a-20 , b+35 ,red,green,blue);}
+  if(name == "pen")   {create_real_pen(a , b,red,green,blue);}
 
 
 }
