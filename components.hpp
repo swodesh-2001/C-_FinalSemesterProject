@@ -1,3 +1,4 @@
+int nepal_counter = 0;
 class menu{
 private:
 int x,y,scale = 1;
@@ -25,7 +26,7 @@ void create(float red=1,float green=1, float blue=1){
   if(name == "square")   {create_square(a,b- 5,scale*40,scale*40,red,green,blue);}
   if(name == "circle")   {create_circle(a+10 , b+15  , scale*20 ,red,green,blue,2);}
   if(name == "pen")   {create_real_pen(a-20, b+35 ,red,green,blue);}
-
+  if(name == "nepal")   {create_nepal(a,b-5,1);}
 }
 
 static void counter(){
@@ -54,6 +55,7 @@ if (flag){
   if(name == "triangle")  { create_triangle(a , b , scale*20 , scale*40 ,red,green,blue); }
   if(name == "circle")   {create_circle(a , b , scale*50 ,red,green,blue,2);}
   if(name == "pen")   {create_real_pen(a , b ,red,green,blue);}
+  if(name == "nepal")   {create_nepal(a,b);}
 
 
 }

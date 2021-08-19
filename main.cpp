@@ -4,12 +4,16 @@
 int width =1000 , height = 700;
 float rr[6]={0.0,0.0,0.0,0.0,0.0},gr[6]={0.9,0.9,0.9,0.9,0.9},br[6]={0.0,0.0,0.0,0.0,0.0};
 
-const int menu_size = 5;
+const int menu_size = 6;
 const int rectangle_size = 500;
 const int square_size = 500;
 const int triangle_size = 500;
 const int circle_size = 500;
 const int pen_size = 500;
+const int nepal_size = 5;
+
+
+
 
 float red=1;
 float green=1;
@@ -26,15 +30,18 @@ bool x{false};
 int x_po=0;
 int y_po=0;
 
-menu menu_points[menu_size] = {menu("square"),menu("rectangle"),menu("triangle"),menu("circle"),menu("pen")};
+menu menu_points[menu_size] = {menu("square"),menu("rectangle"),menu("triangle"),menu("circle"),menu("pen"),menu("nepal")};
 rectangle rectangle_points[rectangle_size]{};
-
 square square_points[square_size]{};
-
 triangle triangle_points[triangle_size]{};
-
 circle circle_points[circle_size]{};
 pen pen_points[pen_size][500]{};
+int nepal_points[nepal_size][2] = {{2000,2000},{2000,2000},{2000,2000},{2000,2000},{2000,2000}} ;
+
+
+void nepal_reset(){
+for(int i=0 ; i < nepal_size ; i++){nepal_points[i][0]=2000;nepal_points[i][1]=2000; nepal_counter = 0;}
+}
 
 
 void mouse_func(int button , int state ,  int x , int y){
@@ -136,6 +143,14 @@ void mouse_func(int button , int state ,  int x , int y){
                         taken_pen=pen_temp-1;
 
                     }
+
+                    if(menu_points[i].get_name() == "nepal"){
+                        nepal_points[nepal_counter][0] = x;
+                        nepal_points[nepal_counter][1] = y;
+                        nepal_counter++;
+                        if(nepal_counter == 6){nepal_reset();}
+                        }
+
                          menu_points[i].change_flag(false);
 
 
@@ -279,9 +294,13 @@ if (draw[j][i])
 }
 }
 
+for(int i=0 ; i < nepal_size ; i++){
+    create_nepal(nepal_points[i][0],nepal_points[i][1]);
+    cout << nepal_points[i][0] << " " << nepal_points[i][1] << endl;
+}
+
 glutKeyboardFunc(keyboard);
 glutPassiveMotionFunc(motion_mouse_func);
-draw_nepal(a,b);
 glutSwapBuffers();
 
 

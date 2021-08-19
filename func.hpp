@@ -122,10 +122,23 @@ for (int i=0;i<360;i++)
 glEnd();
 }
 
-void draw_nepal(int x=100 , int y=100 ){
+void create_nepal(int x=100 , int y=100 , int scale = 10 ){
  //outer_strip
- int scale =10;
- glBegin(GL_POLYGON);
+ if (scale < 2){
+
+     glBegin(GL_POLYGON);
+
+ glColor3f(1,1,1);
+ glVertex2d(x,y);
+ glVertex2d(x,scale*45+y);
+ glVertex2d(x+scale*1,scale*45+y);
+ glVertex2d(x+scale*1,scale*30+y);
+ glVertex2d(x+scale*25,scale*30+y);
+ glVertex2d(x+scale*7,scale*15+y);
+ glVertex2d(x+scale*17,scale*15+y);
+ glEnd();
+ }
+ else{ glBegin(GL_POLYGON);
 
  glColor3f(0,0,1);
  glVertex2d(x,y);
@@ -179,6 +192,7 @@ for (int i=0;i<180;i++)
     glVertex2f(x1,y1);
 }
 glEnd();
+}
 
 
 }
