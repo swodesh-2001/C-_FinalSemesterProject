@@ -24,13 +24,14 @@ bool x{false};
 int x_po=0;
 int y_po=0;
 
-menu menu_points[menu_size] = {menu("square"),menu("rectangle"),menu("triangle"),menu("circle"),menu("pen"),menu("nepal"),menu("eraser")};
+menu <int> menu_points[menu_size] = {menu<int>("square"),menu<int>("rectangle"),menu<int>("triangle"),menu<int>("circle"),menu<int>("pen"),menu<int>("nepal"),menu<int>("eraser")};
 rectangle rectangle_points[rectangle_size]{};
 square square_points[square_size]{};
 triangle triangle_points[triangle_size]{};
 circle circle_points[circle_size]{};
 pen pen_points[pen_size][500]{};
 int nepal_points[nepal_size][2] = {{2000,2000},{2000,2000},{2000,2000},{2000,2000},{2000,2000}} ;
+
 
 
 void nepal_reset(){
@@ -46,6 +47,13 @@ void mouse_func(int button , int state ,  int x , int y){
               if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN ){
                temp1 = menu_points[i].get_id();
                 menu_points[i].change_flag(true);
+                if(i == 0){instructions(1);}
+                if(i == 1){instructions(0);}
+                if(i == 2){instructions(2);}
+                if(i == 3){instructions(3);}
+                if(i == 4){instructions(4);}
+                if(i == 6){instructions(6);}
+
                 clicked=false;
                 for(int i = 0 ; i < menu_size ; i++){
                     if(menu_points[i].get_id() != temp1){menu_points[i].change_flag(false);
@@ -264,6 +272,7 @@ glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 glutInitWindowPosition(50,50);
 glutInitWindowSize(width,height);
 glutCreateWindow("First window");
+
 glutDisplayFunc(display);
 glutReshapeFunc(reshape);
 glutTimerFunc(0,timer,0);
@@ -312,7 +321,6 @@ if (draw[j][i])
 
 for(int i=0 ; i < nepal_size ; i++){
     create_nepal(nepal_points[i][0],nepal_points[i][1]);
-    cout << nepal_points[i][0] << " " << nepal_points[i][1] << endl;
 }
 for (int i = 0 ; i < pen_size ; i++){pen_points[i][0].create(red,green,blue);pen_points[i][0].if_hovering(a,b);}
 for (int i = 0 ; i < menu_size ; i++){menu_points[i].create(red,green,blue); menu_points[i].if_hovering(a,b); menu_points[i].draw(a,b,red,green,blue);}
