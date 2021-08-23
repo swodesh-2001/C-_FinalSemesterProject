@@ -1,23 +1,25 @@
 int nepal_counter = 0;
+
+template <typename T>
 class menu{
 private:
-int x,y,scale = 1;
+T x,y,scale = 1;
 string name;
 bool flag = false;
 float color = 0;
-int id;
+T id;
 
 public :
-static int c ;
-menu(string s = "none",int a = 0 , int b = 0):name(s),x(a),y(b){ id = c; counter();}
+static T c ;
+menu(string s = "none",T a = 0 , T b = 0):name(s),x(a),y(b){ id = c; counter();}
 
-int get_id(){
+T get_id(){
 return id;
 }
 
 void create(float red=1,float green=1, float blue=1){
-  int a = 100*id+x;
-  int b = y;
+  T a = 100*id+x;
+  T b = y;
   create_square(a,b,100,50,0,1,color);
   a = 100*id+x + 40;
   b = y + 10;
@@ -38,7 +40,7 @@ string get_name(){
 return name;
 }
 
-void if_hovering(int a , int b){
+void if_hovering(T a , T b){
     if(a <= (100*id+x + 100) && a >= 100*id+x && b <= (y + scale*50) && b >= y){
         color = 1;
         create_circle(a,b,5,0,0,1,2);
@@ -49,10 +51,10 @@ void if_hovering(int a , int b){
 
 }
 
-void draw(int a , int b,float red=1,float green=1,float blue=1){
+void draw(T a , T b,float red=1,float green=1,float blue=1){
 if (flag){
-  if(name == "rectangle")  { create_square(a , b , scale*50 , scale*15 ,red,green,blue);}
-  if(name == "square")   {create_square(a,b,scale*40,scale*40,red,green,blue); }
+  if(name == "rectangle")  { create_square(a , b , scale*50 , scale*15 ,red,green,blue);  }
+  if(name == "square")   {create_square(a,b,scale*40,scale*40,red,green,blue);   }
   if(name == "triangle")  { create_triangle(a , b , scale*20 , scale*40 ,red,green,blue); }
   if(name == "circle")   {create_circle(a , b , scale*50 ,red,green,blue,2);}
   if(name == "pen")   {create_real_pen(a , b ,red,green,blue);}
@@ -63,7 +65,7 @@ if (flag){
 }
 }
 
-bool hovering_status(int a , int b){
+bool hovering_status(T a , T b){
 
     if(a <= (100*id+x + 100) && a >= 100*id+x && b <= (y + scale*50) && b >= y){
         return true;
@@ -82,7 +84,10 @@ return flag;
 
 };
 
-int menu::c = 0;
+
+
+template <class T> T menu<T> ::c = 0;
+
 
 
 class shapes{
