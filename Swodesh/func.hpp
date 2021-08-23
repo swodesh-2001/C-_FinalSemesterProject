@@ -4,7 +4,6 @@
 #include <math.h>
 #include <iostream>
 #define PI 3.14159
-#include <vector>
 #include <stdlib.h>
 #include <string>
 using namespace std;
@@ -232,6 +231,110 @@ glEnd();
 
 
 }
+
+
+void instructions(int i ){
+system("CLS");
+switch(i){
+    case 0 :
+        cout <<  "******************RECTANLGE*************" << endl;
+        cout << "AFTER SELECTING OBJECT, PRESS : " << endl;
+        cout << "a to reduce size" << endl;
+        cout << "s to increase size" << endl;
+        cout << "u to make it unfilled object" << endl;
+        cout << "p and o to change unfilled line thickness" << endl;
+        cout << "f to make it filled object" << endl;
+        cout << "r to make it RED" << endl;
+        cout << "g to make it green" << endl;
+        cout << "y to make it yellow" << endl;
+        cout << "b to make it blue" << endl;
+        cout << "1 and 2 to change length" << endl;
+        cout << "3 and 4 to change breadth" << endl;
+        cout << "*******************************************" << flush;
+        break;
+
+
+     case 1 :
+        cout <<  "******************SQUARE*************" << endl;
+        cout << "AFTER SELECTING OBJECT, PRESS : " << endl;
+        cout << "a to reduce size" << endl;
+        cout << "s to increase size" << endl;
+        cout << "u to make it unfilled object" << endl;
+        cout << "p and o to change unfilled line thickness" << endl;
+        cout << "f to make it filled object" << endl;
+        cout << "r to make it RED" << endl;
+        cout << "g to make it green" << endl;
+        cout << "y to make it yellow" << endl;
+        cout << "b to make it blue" << endl;
+        cout << "1 and 2 to change length" << endl;
+        cout << "3 and 4 to change breadth" << endl;
+        cout << "*******************************************" << flush;
+        break;
+
+
+     case 2 :
+        cout <<  "******************TRIANGLE*************" << endl;
+        cout << "AFTER SELECTING OBJECT, PRESS : " << endl;
+        cout << "a to reduce size" << endl;
+        cout << "s to increase size" << endl;
+        cout << "u to make it unfilled object" << endl;
+        cout << "p and o to change unfilled line thickness" << endl;
+        cout << "f to make it filled object" << endl;
+        cout << "r to make it RED" << endl;
+        cout << "g to make it green" << endl;
+        cout << "y to make it yellow" << endl;
+        cout << "b to make it blue" << endl;
+        cout << "1 and 2 to change length" << endl;
+        cout << "3 and 4 to change breadth" << endl;
+        cout << "*******************************************" << flush;
+        break;
+
+
+     case 3 :
+        cout <<  "******************CIRCLE*************" << endl;
+        cout << "AFTER SELECTING OBJECT, PRESS : " << endl;
+        cout << "a to reduce size" << endl;
+        cout << "s to increase size" << endl;
+        cout << "u to make it unfilled object" << endl;
+        cout << "p and o to change unfilled line thickness" << endl;
+        cout << "f to make it filled object" << endl;
+        cout << "r to make it RED" << endl;
+        cout << "g to make it green" << endl;
+        cout << "y to make it yellow" << endl;
+        cout << "b to make it blue" << endl;
+        cout << "1 and 2 to change length" << endl;
+        cout << "3 and 4 to change breadth" << endl;
+        cout << "*******************************************" << flush;
+        break;
+
+
+     case 4 :
+        cout <<  "******************PEN*************" << endl;
+        cout << "AFTER SELECTING OBJECT, PRESS : " << endl;
+        cout << "a to reduce size" << endl;
+        cout << "s to increase size" << endl;
+        cout << "u to make it unfilled object" << endl;
+        cout << "p and o to change unfilled line thickness" << endl;
+        cout << "f to make it filled object" << endl;
+        cout << "r to make it RED" << endl;
+        cout << "g to make it green" << endl;
+        cout << "y to make it yellow" << endl;
+        cout << "b to make it blue" << endl;
+        cout << "1 and 2 to change length" << endl;
+        cout << "3 and 4 to change breadth" << endl;
+        cout << "*******************************************" << flush;
+        break;
+
+
+     case 6 :
+        cout <<  "******************ERASER*************" << endl;
+
+        cout << "*******************************************" << flush;
+        break;
+
+}
+}
+
 
 
 void reshape(int w,int h){
