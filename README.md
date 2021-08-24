@@ -8,6 +8,6 @@ If error occurs then please try to run this code seperately in any IDE .
 
 Once the paint app opens you will be given with instruction if you click any objects from menu bar**
                                       
-                                      **THANKS !!!!!!!!!!!!!!**
+                          
 
  
