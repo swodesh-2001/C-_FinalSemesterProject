@@ -8,6 +8,15 @@ If error occurs then please try to run this code seperately in any IDE .
 
 Once the paint app opens you will be given with instruction if you click any objects from menu bar**
                                       
-                          
+THESE ARE SOME OF THE SNAPSHOT OF PAINT APP    
+
+![backgroiund](https://user-images.githubusercontent.com/70265297/130587314-4c62b9d9-5bef-4391-8721-223aea4ce1bb.PNG)
+
+![MicrosoftTeams-image (2)](https://user-images.githubusercontent.com/70265297/130587376-0e899db3-cb7b-4f0a-810c-291522dc14f9.png)
+
+![image](https://user-images.githubusercontent.com/70265297/130587420-0325b8e4-b59d-49d4-b6ac-0a9ea1b4ff7e.png)
+
+
+
 
  
